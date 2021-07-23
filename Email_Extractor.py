@@ -35,7 +35,7 @@ if __name__ == "__main__":
     # print("|__   |\/|  /\  | |    __ |__  \_/  |  |__)  /\  /  `  |  /  \ |__)")
     # print("|___  |  | /~~\ | |___    |___ / \  |  |  \ /~~\ \__,  |  \__/ |  \ \n")
     
-    excel_file = input("Enter file name") + ".xlsx"
+    excel_file = input("Enter file name: ") + ".xlsx"
     # try:
     wb = load_workbook(excel_file)
     sh1 = wb['Sheet1']
