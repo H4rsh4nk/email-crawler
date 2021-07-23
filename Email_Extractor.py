@@ -29,8 +29,9 @@ if __name__ == "__main__":
             sh1.cell(i,5).value = _Core._Core__Emails
             pe = (i/row)*100
             print(str("{:.2f}".format(pe)) + "% " + "Entry : " + str(i) + "  |" + _Core._Core__Emails)
+        wb.save("Output.xlsx")
     # Write text to file
-    wb.save("Output.xlsx")
+    
     # _File_Write.File_W(set(_Core._Core__Emails))
 # except Exception:
 #     print("error")
