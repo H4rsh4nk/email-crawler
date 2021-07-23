@@ -27,7 +27,8 @@ if __name__ == "__main__":
         elif( _Core._Core__Emails != ""):
             _Core.URL(sh1.cell(i,4).value)
             sh1.cell(i,5).value = _Core._Core__Emails
-            print(str((i//row)*100) + "% " + "Entry : " + str(i) + "  |" + _Core._Core__Emails)
+            pe = (i/row)*100
+            print(str("{:.2f}".format(pe)) + "% " + "Entry : " + str(i) + "  |" + _Core._Core__Emails)
     # Write text to file
     wb.save("Output.xlsx")
     # _File_Write.File_W(set(_Core._Core__Emails))
