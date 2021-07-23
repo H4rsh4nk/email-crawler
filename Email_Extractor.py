@@ -34,9 +34,8 @@ if __name__ == "__main__":
     # print(" ___                       ___     ___  __        __  ___  __   __")
     # print("|__   |\/|  /\  | |    __ |__  \_/  |  |__)  /\  /  `  |  /  \ |__)")
     # print("|___  |  | /~~\ | |___    |___ / \  |  |  \ /~~\ \__,  |  \__/ |  \ \n")
-    from google.colab import files
-    excel_file = files.upload()
-    # excel_file = "Book.xlsx"
+    
+    excel_file = input("Enter file name") + ".xlsx"
     # try:
     wb = load_workbook(excel_file)
     sh1 = wb['Sheet1']
@@ -99,8 +98,7 @@ if __name__ == "__main__":
         else:
             tmp = sh1.cell(i,5).value
     wb.save("Book.xlsx") 
-    from google.colab import files
-    files.download(excel_file)
+   
     # Write text to file
     # _File_Write.File_W(set(_Core._Core__Emails))
 # except Exception:
