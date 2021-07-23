@@ -15,23 +15,33 @@ if __name__ == "__main__":
     # print(" ___                       ___     ___  __        __  ___  __   __")
     # print("|__   |\/|  /\  | |    __ |__  \_/  |  |__)  /\  /  `  |  /  \ |__)")
     # print("|___  |  | /~~\ | |___    |___ / \  |  |  \ /~~\ \__,  |  \__/ |  \ \n")
-    
+    excel_file = "Book2.xlsx"
     # try:
-    wb = load_workbook("Book2.xlsx")
+    wb = load_workbook(excel_file)
     sh1 = wb['Sheet1']
     row = sh1.max_row
     column = sh1.max_column
+    tmp = sh1.cell(1,5).value
+
     for i in range(1 , row+1):
+        sh1.cell(i,6).value = sh1.cell(i,6).value.replace('Registered Member ', '')
+
         if(sh1.cell(i,4).value == ""):
             continue
-        elif( _Core._Core__Emails != ""):
+        elif(( _Core._Core__Emails != "") and (sh1.cell(i,5).value == None)): #or (sh1.cell(i,5).value == ""))):
             _Core.URL(sh1.cell(i,4).value)
             sh1.cell(i,5).value = _Core._Core__Emails
             pe = (i/row)*100
             print(str("{:.2f}".format(pe)) + "% " + "Entry : " + str(i) + "  |" + _Core._Core__Emails)
-        wb.save("Output.xlsx")
+        wb.save(excel_file) 
+    print("All entries are done")
+    for i in range(2 , row+1):
+        if(sh1.cell(i,5).value == tmp):
+            sh1.cell(i,5).value = ""
+        else:
+            tmp = sh1.cell(i,5).value
+    wb.save(excel_file) 
     # Write text to file
-    
     # _File_Write.File_W(set(_Core._Core__Emails))
 # except Exception:
 #     print("error")
