@@ -19,7 +19,7 @@ if __name__ == "__main__":
     # excel_file = files.upload()
     # excel_file = "Book.xlsx"
     # try:
-    excel_file = input("Enter file name : " + ".xlsx") 
+    excel_file = input("Enter file name : " ) + ".xlsx"
 
     wb = load_workbook(excel_file)
     sh1 = wb['Sheet1']
